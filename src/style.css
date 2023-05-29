@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  position: relative;
+}
+
+main .container {
+  width: 98%;
+  margin: auto;
+}
+
+.movies-banners {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.movie-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0 10px 0;
+}
+
+.img-card {
+  width: 100%;
+}
+
+.img-card img {
+  width: 100%;
+}
+
+.img-description {
+  width: 100%;
+  background-color: #01acf6;
+  padding: 8px 0;
+  text-align: center;
+}
+
+.img-description .action {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 80%;
+}
+
+form button {
+  width: 30%;
+  padding: 10px;
+}
+
+.img-description .action button {
+  border: none;
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
+#popup-modal {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+}
+
+#popup-modal .img {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  object-position: center;
+}
+
+#popup-modal .img img {
+  width: 30%;
+  top: 0;
+  left: 40%;
+  height: 40vh;
+  margin: auto;
+}
+
+.movies-details-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.summary p {
+  margin-top: 30px;
+}
+
+.added-comment {
+  width: 50%;
+  margin: 10px auto;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form textarea {
+  padding: 8px;
+}
+
+#close-btn {
+  position: absolute;
+  font-weight: 700;
+  font-size: 30px;
+  top: 0;
+  left: 95%;
+}
