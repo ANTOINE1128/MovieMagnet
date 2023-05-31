@@ -1,6 +1,5 @@
-import "./style.css";
-// import getData from "./modules/getmovies";
-// getData();
+import './style.css';
 
-import {getImage} from "./modules/getmovies";
+import getImage from './modules/getmovies';
+
 getImage();

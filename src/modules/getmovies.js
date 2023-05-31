@@ -1,6 +1,6 @@
-export const getImage = () => {
-  const imageContainer = document.querySelector(".movies-banners");
-  fetch("https://api.tvmaze.com/shows?page=1")
+const getImage = () => {
+  const imageContainer = document.querySelector('.movies-banners');
+  fetch('https://api.tvmaze.com/shows?page=1')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((element) => {
@@ -23,8 +23,9 @@ export const getImage = () => {
 
   </div>
   </div>`;
-        imageContainer.insertAdjacentHTML("beforeend", markup);
-
+        imageContainer.insertAdjacentHTML('beforeend', markup);
       });
     });
 };
+
+export default getImage;
