@@ -1,3 +1,8 @@
-h1 {
-  color: red;
+footer {
+  width: 100%;
+  font-size: 20px;
+  padding: 20px 0;
+  text-align: center;
+  background: black;
+  color: azure;
 }
