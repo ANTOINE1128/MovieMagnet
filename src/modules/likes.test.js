@@ -48,3 +48,4 @@ describe('updateTotalLikes', () => {
     expect(document.getElementById('total-likes-2').textContent).toBe('0');
   });
 });
+

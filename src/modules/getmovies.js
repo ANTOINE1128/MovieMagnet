@@ -13,6 +13,8 @@ const initializeComments = (data) => {
       popup.innerHTML = '';
 
       const popupMarkup = `
+
+
         <div class="img">
           <div class="movies-details-section">
             <img src="${relatedItem.image.original}" alt="movies images">
@@ -94,6 +96,7 @@ const initializeComments = (data) => {
     });
   });
 };
+
 const getMovies = () => {
   const imageContainer = document.querySelector('.movies-banners');
 
