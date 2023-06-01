@@ -1,23 +1,21 @@
-const updateTotalLikes = () => {
-  fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/')
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
+const updateTotalLikes = async () => {
+  try {
+    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/');
+    if (!response.ok) {
+      throw new Error('Failed to fetch likes data');
+    }
+    const likesData = await response.json();
+
+    likesData.forEach((item) => {
+      const { item_id: itemId, likes } = item;
+      const likesElement = document.getElementById(`total-likes-${itemId}`);
+      if (likesElement) {
+        likesElement.textContent = likes.toString();
       }
-      throw new Error(`Error retrieving total likes: ${response.status}`);
-    })
-    .then((likesData) => {
-      const totalLikesElements = document.querySelectorAll('.counter');
-      totalLikesElements.forEach((likesElement) => {
-        const itemId = likesElement.getAttribute('id').split('-')[2];
-        const itemLikes = likesData.find((item) => item.item_id === itemId);
-        const totalLikes = itemLikes ? itemLikes.likes || 0 : 0;
-        likesElement.textContent = totalLikes;
-      });
-    })
-    .catch((error) => {
-      console.error('Error retrieving total likes:', error);
     });
+  } catch (error) {
+    console.error('Error retrieving total likes:', error);
+  }
 };
 
 export default updateTotalLikes;
