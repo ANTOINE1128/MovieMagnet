@@ -1,3 +1,30 @@
+const updateTotalLikes = () => {
+  fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/')
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(`Error retrieving total likes: ${response.status}`);
+    })
+    .then((likesData) => {
+      const totalLikesElements = document.querySelectorAll('.counter');
+      totalLikesElements.forEach((likesElement) => {
+        const itemId = likesElement.getAttribute('id').split('-')[2];
+        const itemLikes = likesData.find((item) => item.item_id === itemId);
+
+        if (itemLikes) {
+          const totalLikes = itemLikes.likes || 0;
+          likesElement.textContent = totalLikes;
+        } else {
+          likesElement.textContent = '0';
+        }
+      });
+    })
+    .catch((error) => {
+      console.error('Error retrieving total likes:', error);
+    });
+};
+
 const getImage = () => {
   const imageContainer = document.querySelector('.movies-banners');
 
@@ -26,14 +53,12 @@ const getImage = () => {
         imageContainer.insertAdjacentHTML('beforeend', markup);
       });
 
-
-
       const thumbsUpButtons = document.querySelectorAll('.thumbsUpBtn');
       thumbsUpButtons.forEach((button) => {
         button.addEventListener('click', () => {
           const itemId = button.parentElement.parentElement.querySelector('.comment').getAttribute('data-id');
 
-          fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/`)
+          fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/')
             .then((response) => response.json())
             .then((data) => {
               const itemLikes = data.find((item) => item.item_id === itemId);
@@ -44,7 +69,7 @@ const getImage = () => {
                 totalLikesElement.textContent = totalLikes;
               }
 
-              fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/`, {
+              fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -70,34 +95,6 @@ const getImage = () => {
       });
 
       updateTotalLikes();
-    });
-};
-
-const updateTotalLikes = () => {
-  fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/`)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error(`Error retrieving total likes: ${response.status}`);
-      }
-    })
-    .then((likesData) => {
-      const totalLikesElements = document.querySelectorAll('.counter');
-      totalLikesElements.forEach((likesElement) => {
-        const itemId = likesElement.getAttribute('id').split('-')[2];
-        const itemLikes = likesData.find((item) => item.item_id === itemId);
-
-        if (itemLikes) {
-          const totalLikes = itemLikes.likes || 0;
-          likesElement.textContent = totalLikes;
-        } else {
-          likesElement.textContent = '0';
-        }
-      });
-    })
-    .catch((error) => {
-      console.error('Error retrieving total likes:', error);
     });
 };
 
