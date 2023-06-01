@@ -89,7 +89,7 @@
 
  <p><a href="#">https://antoine1128.github.io/javascript-capstone/dist/</a></p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top" >back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
