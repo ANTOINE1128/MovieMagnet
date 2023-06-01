@@ -86,9 +86,8 @@
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-
- <p><a href="#">https://antoine1128.github.io/javascript-capstone/dist/</a></p>
-
+<p><a href="https://drive.google.com/file/d/14zRoHM5TOujrdnlNwP1o-A8dBot-5ylN/view?usp=sharing">Video Description</a></p>
+ <p><a href="https://antoine1128.github.io/javascript-capstone/dist/">Live Demo</a></p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
