@@ -1,35 +1,112 @@
-const updateTotalLikes = () => {
-  fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/')
+import { getComments, getCommentCount } from './comments.js';
+import updateTotalLikes from './likes.js';
+
+const initializeComments = (data) => {
+  const commentButtons = document.querySelectorAll('.comment');
+
+  commentButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const popup = document.querySelector('#popup-modal');
+      const movieId = button.getAttribute('data-id');
+      const relatedItem = data.find((item) => item.id === parseInt(movieId, 10));
+
+      popup.innerHTML = '';
+
+      const popupMarkup = `
+
+
+        <div class="img">
+          <div class="movies-details-section">
+            <img src="${relatedItem.image.original}" alt="movies images">
+            <span id="close-btn">&#10005;</span>
+            <div class="summary">
+              <p>
+                Name: ${relatedItem.name} &nbsp;&nbsp;&nbsp; Genres: ${relatedItem.genres} <br>
+                Country: ${relatedItem.network.country.name} &nbsp;&nbsp;&nbsp; Language: ${relatedItem.language} <br>
+                Released Date: ${relatedItem.premiered} &nbsp;&nbsp;&nbsp; Status: ${relatedItem.status}<br>
+              </p>
+            </div>
+          </div>
+          <div class="description">
+            <div class="comment-count">
+              <p>Comment: <span id="comment-count-${movieId}">0</span> <p>
+            </div>
+            <div class="added-comment">
+              <div class='comment-list-style' id="comment-list-${movieId}"></div>
+            </div>
+          </div>
+          <div class="comment-section">
+            <form id="form-${movieId}">
+              <input type="text" name="name" placeholder="Your Name">
+              <textarea name="message" placeholder="Your Insights"></textarea>
+              <button type="submit">Comment</button>
+            </form>
+          </div>
+        </div>`;
+
+      popup.insertAdjacentHTML('beforeend', popupMarkup);
+
+      popup.style.display = 'block';
+
+      const closeBtn = document.querySelector('#close-btn');
+      closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+      });
+
+      const form = document.getElementById(`form-${movieId}`);
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const message = formData.get('message');
+
+        const commentData = {
+          item_id: relatedItem.id,
+          username: name,
+          comment: message,
+        };
+
+        fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/comments/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(commentData),
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log('Comment posted successfully!');
+
+              getComments(movieId);
+
+              getCommentCount(movieId);
+            } else {
+              throw new Error(`Failed to post comment: ${response.status}`);
+            }
+          })
+          .catch((error) => {
+            console.error('Error posting comment:', error);
+          });
+      });
+
+      getComments(movieId);
+
+      getCommentCount(movieId);
+    });
+  });
+};
+
+const getMovies = () => {
+  const imageContainer = document.querySelector('.movies-banners');
+
+  fetch('https://api.tvmaze.com/shows?page=2')
     .then((response) => {
       if (response.ok) {
         return response.json();
       }
-      throw new Error(`Error retrieving total likes: ${response.status}`);
+      throw new Error(`Error fetching data: ${response.status}`);
     })
-    .then((likesData) => {
-      const totalLikesElements = document.querySelectorAll('.counter');
-      totalLikesElements.forEach((likesElement) => {
-        const itemId = likesElement.getAttribute('id').split('-')[2];
-        const itemLikes = likesData.find((item) => item.item_id === itemId);
-
-        if (itemLikes) {
-          const totalLikes = itemLikes.likes || 0;
-          likesElement.textContent = totalLikes;
-        } else {
-          likesElement.textContent = '0';
-        }
-      });
-    })
-    .catch((error) => {
-      console.error('Error retrieving total likes:', error);
-    });
-};
-
-const getImage = () => {
-  const imageContainer = document.querySelector('.movies-banners');
-
-  fetch('https://api.tvmaze.com/shows?page=2')
-    .then((response) => response.json())
     .then((data) => {
       data.forEach((element) => {
         const markup = `
@@ -50,64 +127,8 @@ const getImage = () => {
               </div>
             </div>
           </div>`;
+
         imageContainer.insertAdjacentHTML('beforeend', markup);
-
-        const getComent = () => {
-          const comment = document.querySelectorAll('.comment');
-          for (let i = 0; i < comment.length; i += 1) {
-            comment[i].addEventListener('click', (event) => {
-              const popup = document.querySelector('#popup-modal');
-
-              const commentid = event.target;
-              const movieId = commentid.getAttribute('data-id');
-              const relatedItem = data.find(
-                (item) => item.id === parseInt(movieId, 10),
-              );
-              const relatedImage = relatedItem.image.original;
-              popup.innerHTML = '';
-              const popupMarkup = `
-        <div class="img">
-          <div class="movies-details-section">
-            <img src="${relatedImage}" alt="movies images">
-            <span id="close-btn">&#10005;</span>
-            <div class="summary">
-              <p>
-                Name: ${relatedItem.name} &nbsp;&nbsp;&nbsp; Genres: ${relatedItem.genres} <br>
-                Country: ${relatedItem.network.country.name} &nbsp;&nbsp;&nbsp; Language: ${relatedItem.language} <br>
-                Released Date : ${relatedItem.premiered} &nbsp;&nbsp;&nbsp; Status: ${relatedItem.status}<br>
-              </p>
-            </div>
-          </div>
-          <div class="description">
-            <div class="added-comment">
-                <p>Name : Bahati</p>
-                <p>Comments : This is the comments</p>
-            </div>
-        </div>
-
-          <div class="comment-section">
-              <form id="form">
-                  <input type="text" name="name" placeholder=" Your Name">
-                  <textarea name="message" placeholder=" Your Insights"></textarea>
-                  <button type="submit">comment</button>
-              </form>
-          </div>
-
-        </div>`;
-
-              popup.insertAdjacentHTML('beforeend', popupMarkup);
-
-              popup.style.display = 'block';
-
-              const closeBtn = document.querySelector('#close-btn');
-              closeBtn.addEventListener('click', () => {
-                popup.style.display = 'none';
-              });
-            });
-          }
-        };
-
-        getComent();
       });
 
       const thumbsUpButtons = document.querySelectorAll('.thumbsUpBtn');
@@ -116,15 +137,17 @@ const getImage = () => {
           const itemId = button.parentElement.parentElement.querySelector('.comment').getAttribute('data-id');
 
           fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/')
-            .then((response) => response.json())
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error(`Error fetching likes data: ${response.status}`);
+            })
             .then((data) => {
               const itemLikes = data.find((item) => item.item_id === itemId);
-
-              if (itemLikes) {
-                const totalLikesElement = document.getElementById(`total-likes-${itemId}`);
-                const totalLikes = itemLikes.likes || 0;
-                totalLikesElement.textContent = totalLikes;
-              }
+              const totalLikesElement = document.getElementById(`total-likes-${itemId}`);
+              const totalLikes = itemLikes ? itemLikes.likes || 0 : 0;
+              totalLikesElement.textContent = totalLikes;
 
               fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/', {
                 method: 'POST',
@@ -138,7 +161,7 @@ const getImage = () => {
                     console.log('Like recorded successfully!');
                     updateTotalLikes();
                   } else {
-                    console.error('Failed to record like:', response.status);
+                    throw new Error(`Failed to record like: ${response.status}`);
                   }
                 })
                 .catch((error) => {
@@ -146,13 +169,17 @@ const getImage = () => {
                 });
             })
             .catch((error) => {
-              console.error('Error retrieving data:', error);
+              console.error('Error retrieving likes data:', error);
             });
         });
       });
 
+      initializeComments(data);
       updateTotalLikes();
+    })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
     });
 };
 
-export default getImage;
+export default getMovies;

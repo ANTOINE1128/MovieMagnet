@@ -1,5 +1,6 @@
+import getMovies from './modules/getmovies.js';
 import './style.css';
 
-import getImage from './modules/getmovies.js';
-
-getImage();
+document.addEventListener('DOMContentLoaded', () => {
+  getMovies();
+});
