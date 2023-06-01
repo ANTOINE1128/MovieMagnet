@@ -8,7 +8,7 @@ const getComments = async (movieId) => {
     const commentsList = document.querySelector(`#comment-list-${movieId}`);
     commentsList.innerHTML = '';
     comments.forEach((comment) => {
-      console.log(comment)
+      console.log(comment);
       const commentMarkup = `
         <div class="comment">
           <p>${comment.creation_date}, ${comment.username} : ${comment.comment}</p>

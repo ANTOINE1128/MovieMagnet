@@ -1,11 +1,10 @@
 const updateTotalLikes = () => {
-  fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/`)
+  fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/')
     .then((response) => {
       if (response.ok) {
         return response.json();
-      } else {
-        throw new Error(`Error retrieving total likes: ${response.status}`);
       }
+      throw new Error(`Error retrieving total likes: ${response.status}`);
     })
     .then((likesData) => {
       const totalLikesElements = document.querySelectorAll('.counter');
@@ -21,4 +20,4 @@ const updateTotalLikes = () => {
     });
 };
 
-export { updateTotalLikes };
+export default updateTotalLikes;
