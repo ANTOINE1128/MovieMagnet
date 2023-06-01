@@ -33,7 +33,7 @@
 # 📖 [capstone-project] <a name="about-project"></a>
 
 **[WEBPACK Project]**
-  This capstone  is a project created using html, css and javascript modules with Es6 and  with Webpack and jest installed in it for the better performance while in develpment even in production mode, because all functionality are emprimented in here. This capstone is an Advanced one that Working with Api  for file enterchangable and best practice in using ES6.
+  This capstone  is a project created using html, css and javascript modules with Es6 and  with Webpack and jest installed in it for the better performance while in development even in production mode, because all functionality are imprinted   in here. This capstone is an Advanced one that Working with Api  for file enter changeable and best practice in using ES6.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -87,7 +87,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
- <p><a href="#"> LIVE DEMO COMING SOON </a></p>
+ <p><a href="#">  </a></p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,14 +103,14 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 - you need a laptop.
 - you need github installed on it.
-- You need a basic knowledge of Html and Css and JavaScript
+- You need a basic knowledge of Html and Css  JavaScript and webpack
 
 
 ### Setup
 
 Clone this repository to your desired folder:
 - cd my-folder
-- git clone https://github.com/zbahati/leaderboardApi.git
+- git clone https://github.com/ANTOINE1128/javascript-capstone
 
 
 ### Install
@@ -154,6 +154,11 @@ You can deploy this project using: github page's
 - GitHub: [zbahati](https://github.com/zbahati)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/zirimwabagabo-bahati)
 
+ **Antoine Makdessy**
+
+- GitHub: [Antoine1128](https://github.com/Antoine1128)
+- LinkedIn: [LinkedIn]( https://www.linkedin.com/in/antoine-makdessy/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -191,7 +196,8 @@ show me your support by following me on github and giving me a star please .
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microverse for guidance and support in this project and always.
-
+- A big thanks for Code reviewers for their priceless feedback and reviews
+-  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
