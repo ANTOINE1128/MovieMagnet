@@ -154,7 +154,7 @@ You can deploy this project using: github page's
 - GitHub: [zbahati](https://github.com/zbahati)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/zirimwabagabo-bahati)
 
- **Antoine Makdessy**
+  **Antoine  Makdessy**
 
 - GitHub: [Antoine1128](https://github.com/Antoine1128)
 - LinkedIn: [LinkedIn]( https://www.linkedin.com/in/antoine-makdessy/)
