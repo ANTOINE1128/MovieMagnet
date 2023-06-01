@@ -1,4 +1,3 @@
-
 import { getComments, getCommentCount } from './comments.js';
 import updateTotalLikes from './likes.js';
 
@@ -91,12 +90,9 @@ const initializeComments = (data) => {
           });
       });
 
-
       getComments(movieId);
 
       getCommentCount(movieId);
-
-     
     });
   });
 };
@@ -187,4 +183,3 @@ const getMovies = () => {
 };
 
 export default getMovies;
-
