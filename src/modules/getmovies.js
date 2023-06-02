@@ -1,6 +1,8 @@
 import { getComments, getCommentCount } from './comments.js';
 import updateTotalLikes from './likes.js';
 
+const countMovies = (data) => data.length;
+
 const initializeComments = (data) => {
   const commentButtons = document.querySelectorAll('.comment');
 
@@ -95,6 +97,9 @@ const initializeComments = (data) => {
       getCommentCount(movieId);
     });
   });
+  const totalMovies = countMovies(data);
+  const getCount = document.querySelector('#total-movies');
+  getCount.textContent = totalMovies;
 };
 
 const getMovies = () => {

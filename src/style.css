@@ -63,6 +63,17 @@ main .container {
   margin: auto;
 }
 
+.total {
+  width: 100%;
+}
+
+#total-movies {
+  font-weight: 700;
+  color: red;
+  padding: 0 20px;
+  border: 1px solid black;
+}
+
 .movies-banners {
   width: 100%;
   display: flex;
