@@ -2,7 +2,6 @@
 
   <h3><b>Capstone-project</b></h3>
 
-</div>
 
 <!-- TABLE OF CONTENTS -->
 
