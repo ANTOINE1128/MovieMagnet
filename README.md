@@ -103,7 +103,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 - you need a laptop.
 - you need github installed on it.
-- You need a basic knowledge of Html and Css  JavaScript and webpack
+- You need a basic knowledge of Html and Css  JavaScript and webpack.
 
 
 ### Setup
