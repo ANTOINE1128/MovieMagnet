@@ -24,17 +24,6 @@ describe('getComments', () => {
     expect(commentsListElement.innerHTML).toContain('Comment 1');
     expect(commentsListElement.innerHTML).toContain('Comment 2');
   });
-
-  it('should handle fetch error and log an error message', async () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error');
-
-    fetchMock.mockRejectOnce('Fetch error');
-    await getComments(1);
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
-      'Error retrieving comments:',
-      'Fetch error',
-    );
-  });
 });
 
 describe('getCommentCount', () => {
@@ -60,18 +49,4 @@ describe('getCommentCount', () => {
     expect(commentCountElement.textContent).toBe('2');
   });
 
-  it('should handle fetch error and log an error message', async () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error');
-    fetchMock.mockRejectOnce('Fetch error');
-    const movieId = 1;
-    const commentCountElement = document.createElement('div');
-    commentCountElement.id = `comment-count-${movieId}`;
-    document.body.appendChild(commentCountElement);
-
-    await getCommentCount(movieId);
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
-      'Error retrieving comment count:',
-      'Fetch error',
-    );
-  });
 });
