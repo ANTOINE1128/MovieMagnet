@@ -48,5 +48,4 @@ describe('getCommentCount', () => {
 
     expect(commentCountElement.textContent).toBe('2');
   });
-
 });
