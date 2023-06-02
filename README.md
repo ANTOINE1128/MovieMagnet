@@ -135,7 +135,7 @@ npm start : this command will start webpack dev-server that will watch any chang
 To run tests, run the following command:
 
 - webpack have the linters test so that with you run npm start and have error will show you where the error is and then before continue fix it.
-- testing using jest to run the test you can use this command after installing jest in your local machine : npx jest
+- testing using jest to run the test you can use this command after installing jest in your local machine : npx jest or npm test
 - to install jest you can run this command : npx i jest 
 
 # this is a screenshot of the tests: 
