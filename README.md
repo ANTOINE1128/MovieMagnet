@@ -139,7 +139,8 @@ To run tests, run the following command:
 - to install jest you can run this command : npx i jest 
 
 # this is a screenshot of the tests: 
- - <img src="../img/Screenshot (23).png">
+<img src="./img/Screenshot (23).png">
+
 ### Deployment
 
 You can deploy this project using: github page's
