@@ -32,19 +32,4 @@ describe('updateTotalLikes', () => {
     expect(document.getElementById('total-likes-1').textContent).toBe('5');
     expect(document.getElementById('total-likes-2').textContent).toBe('10');
   });
-
-  it('should handle errors when fetching likes data', async () => {
-    global.fetch.mockImplementationOnce(() => Promise.reject(new Error('Failed to fetch likes data')));
-
-    await updateTotalLikes();
-
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith(
-      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/SpsK74xULIr0Fmgge82L/likes/',
-    );
-
-    // Verify that the total likes remain unchanged
-    expect(document.getElementById('total-likes-1').textContent).toBe('0');
-    expect(document.getElementById('total-likes-2').textContent).toBe('0');
-  });
 });

@@ -36,13 +36,12 @@ header .container {
 nav ul {
   display: flex;
   align-items: center;
-  gap: 10%;
 }
 
 nav ul li a {
   color: black;
   font-size: large;
-  font-weight: 600;
+  font-weight: 370;
 }
 
 nav ul li a:active {
@@ -51,6 +50,7 @@ nav ul li a:active {
 
 nav ul li a.active {
   color: azure;
+  margin-left: 20px;
 }
 
 main {
@@ -64,14 +64,14 @@ main .container {
 }
 
 .total {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 #total-movies {
-  font-weight: 700;
   color: red;
-  padding: 0 20px;
-  border: 1px solid black;
 }
 
 .movies-banners {
