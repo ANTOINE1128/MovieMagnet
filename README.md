@@ -29,11 +29,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [capstone-project] <a name="about-project"></a>
+# 📖 [MovieMagnet] <a name="about-project"></a>
 
-**[WEBPACK Project]**
-  This capstone  is a project created using html, css and javascript modules with Es6 and  with Webpack and jest installed in it for the better performance while in development even in production mode, because all functionality are imprinted   in here. This capstone is an Advanced one that Working with Api  for file enter changeable and best practice in using ES6.
-## 🛠 Built With <a name="built-with"></a>
+**[MovieMagnet]**
+this is a movie App that shows a vast amount of movies. that users can like or write a comment on each one of the movies "></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -98,17 +97,17 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+To run this project you need:
 - you need a laptop.
-- you need github installed on it.
-- You need a basic knowledge of Html and Css  JavaScript and webpack.
+- you need GitHub installed on it.
+- You need a basic knowledge of HTML, CSS JavaScript, and Webpack.
 
 
 ### Setup
 
 Clone this repository to your desired folder:
 - cd my-folder
-- git clone https://github.com/ANTOINE1128/javascript-capstone
+- git clone https://github.com/ANTOINE1128/MovieMagnet
 
 
 ### Install
@@ -117,14 +116,14 @@ Install this project with:
 
 
 - cd my-project
-- npm install .
+- npm install.
 
 
 ### Usage
-make sure that you have node installed  in your local machine so that you can get access of using npm command.
+make sure that you have a node installed  in your local machine so that you can get access to using the npm command.
 
-After creating the cloning this repo,open it into vs code or your prefered IDE and then   open you terminal to  run this command
-npm start : this command will start webpack dev-server that will watch any change made in dist folder so that it can reflect to the browser without reflesh the page.
+After creating the cloning this repo, open it into vs code or your preferred IDE and then   open your terminal to  run this command
+npm start: this command will start the web-pack dev-server that will watch any change made in the dist folder so that it can reflect the browser without refreshing the page.
 
 
 
@@ -132,16 +131,16 @@ npm start : this command will start webpack dev-server that will watch any chang
 
 To run tests, run the following command:
 
-- webpack have the linters test so that with you run npm start and have error will show you where the error is and then before continue fix it.
-- testing using jest to run the test you can use this command after installing jest in your local machine : npx jest or npm test
-- to install jest you can run this command : npx i jest 
+- webpack has the linters test so that if you run npm start and have an error will show you where the error is and then continue to fix it.
+- testing using jest to run the test you can use this command after installing jest in your local machine: npx jest or npm test
+- to install jest you can run this command: npx i jest 
 
-# this is a screenshot of the tests: 
+# This is a screenshot of the tests: 
 <img src="./img/Screenshot (23).png">
 
 ### Deployment
 
-You can deploy this project using: github page's
+You can deploy this project using: GitHub page's
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -190,7 +189,7 @@ Contributions, issues, and feature requests are welcome!
 ## ⭐️ Show your support <a name="support"></a>
 
 
-show me your support by following me on github and giving me a star please .
+show me your support by following me on Git Hub and giving me a star, please.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -199,7 +198,7 @@ show me your support by following me on github and giving me a star please .
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank Microverse for guidance and support in this project and always.
-- A big thanks for Code reviewers for their priceless feedback and reviews
+- A big thanks to Code reviewers for their priceless feedback and reviews
 -  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
